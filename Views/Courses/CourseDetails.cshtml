@@ -1,0 +1,25 @@
+﻿@model Labb_2___Linq.Models.Course
+
+<h2>@Model.CourseName</h2>
+
+<h3>Registered Students</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Student Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var enrollment in Model.Enrollments)
+        {
+            <tr>
+                <td>@enrollment.Student.FirstName @enrollment.Student.LastName</td>
+                <td>
+                    <!-- other options -->
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Index">Back to course list</a>

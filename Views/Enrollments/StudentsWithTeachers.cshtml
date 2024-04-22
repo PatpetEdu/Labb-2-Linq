@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Labb_2___Linq.Controllers.StudentTeacherViewModel>
+
+<h2>Students and their Teachers</h2>
+
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Student</th>
+            <th>Teacher</th>
+            <th>Course Name</th>
+            <th>Class</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.StudentName</td>
+                <td>@item.TeacherName</td>
+                <td>@item.CourseName</td>
+                <td>@item.ClassName</td>
+            </tr>
+        }
+    </tbody>
+</table>

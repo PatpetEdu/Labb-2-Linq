@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Labb_2___Linq.Models.Enrollment>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Student enrollment</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success mb-3">Enroll Student</a>
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Course)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.FirstName)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.EnrollmentId" class="btn btn-info">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.EnrollmentId" class="btn btn-primary">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.EnrollmentId" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<a asp-controller="Enrollments" asp-action="StudentsWithTeachers" asp-route-courseName="Programmering 1" class=" btn btn-primary mt-3">Students and Teacher Courses</a>
+
+
